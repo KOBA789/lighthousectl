@@ -65,7 +65,7 @@ impl From<PowerState> for u8 {
             PowerState::Sleep => 0x00,
             PowerState::Booting => 0x01,
             PowerState::Standby => 0x02,
-            PowerState::On => 0x0b,
+            PowerState::On => 0x01,
             PowerState::Unknown(byte) => byte,
         }
     }
