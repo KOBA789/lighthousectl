@@ -7,8 +7,9 @@ edition = "2021"
 
 [dependencies]
 tokio = { version = "1", features = ["rt", "macros", "sync"] }
-btleplug = "0.10"
+btleplug = "= 0.10.0"
 anyhow = "1"
 uuid = "1"
-clap = { version = "3", features = ["derive"] }
+clap = { version = "4", features = ["derive"] }
 futures = { version = "0.3", default-features = false }
+env_logger = "0.11"

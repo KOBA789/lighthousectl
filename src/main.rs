@@ -5,7 +5,7 @@ use btleplug::{
     api::{Central, CentralEvent, Characteristic, Manager as _, Peripheral, ScanFilter, WriteType},
     platform::Manager,
 };
-use clap::{ArgEnum, Parser};
+use clap::{Parser, ValueEnum};
 use futures::{stream::BoxStream, StreamExt, TryStreamExt};
 use uuid::{uuid, Uuid};
 
@@ -24,14 +24,14 @@ macro_rules! guard {
 #[derive(Parser)]
 #[clap(author, version, about, long_about = None)]
 struct Cli {
-    #[clap(arg_enum, value_parser)]
+    #[clap(value_enum)]
     command: Command,
     /// Base station names to control or show.
     /// If nothing is specified, it will scan endlessly and show or control all discovered base stations.
     names: Vec<String>,
 }
 
-#[derive(Clone, ArgEnum)]
+#[derive(Clone, ValueEnum)]
 enum Command {
     On,
     Sleep,
